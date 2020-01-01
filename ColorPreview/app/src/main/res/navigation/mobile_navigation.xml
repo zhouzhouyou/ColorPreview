@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="edu.colorpreview.view.bookmark.BookmarkFragment"
+        android:label="BookmarkFragment"
+        tools:layout="@layout/design_recycler_view"/>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="edu.colorpreview.view.profile.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment"/>
+    <activity
+        android:id="@+id/designerActivity"
+        android:name="edu.colorpreview.view.designer.DesignerActivity"
+        android:label="designer_activity"
+        tools:layout="@layout/designer_activity" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="edu.colorpreview.view.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/design_recycler_view"/>
+</navigation>
