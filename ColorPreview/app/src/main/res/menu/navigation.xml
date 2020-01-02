@@ -5,7 +5,11 @@
         android:icon="@drawable/ic_bookmark_white_24dp"
         android:title="@string/bookmark" />
     <item
-        android:id="@+id/create"
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/home"/>
+    <item
+        android:id="@+id/designer"
         android:icon="@drawable/ic_create_white_24dp"
         android:title="@string/create" />
     <item

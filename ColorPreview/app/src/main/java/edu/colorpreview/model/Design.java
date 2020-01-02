@@ -1,5 +1,9 @@
 package edu.colorpreview.model;
 
+import android.graphics.Color;
+import android.view.View;
+
+import androidx.databinding.BindingAdapter;
 import lombok.Data;
 
 @Data
@@ -8,20 +12,44 @@ public class Design {
 
     public String name;
 
+    /**
+     * Primary Color
+     */
     public String p;
 
+    /**
+     * Primary Lighter
+     */
     public String pl;
 
+    /**
+     * Primary Darker
+     */
     public String pd;
 
+    /**
+     * Secondary
+     */
     public String s;
 
+    /**
+     * Secondary Lighter
+     */
     public String sl;
 
+    /**
+     * Secondary Darker
+     */
     public String sd;
 
+    /**
+     * Text on Primary
+     */
     public String tp;
 
+    /**
+     * Text on Secondary
+     */
     public String ts;
 
     public Integer uid;
@@ -38,6 +66,11 @@ public class Design {
         this.tp = tp;
         this.ts = ts;
         this.uid = uid;
+    }
+
+    @BindingAdapter("android:background")
+    public static void setBackground(View view, String color) {
+        view.setBackgroundColor(Color.parseColor(color));
     }
 }
 

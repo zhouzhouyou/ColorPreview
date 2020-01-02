@@ -1,5 +1,7 @@
 package edu.colorpreview.view.bookmark;
 
+import android.view.View;
+
 import edu.colorpreview.R;
 import edu.colorpreview.util.fragment.ViewModelFragment;
 
@@ -10,7 +12,7 @@ public class BookmarkFragment extends ViewModelFragment<BookmarkViewModel> {
     }
 
     @Override
-    protected void init() {
+    protected void init(View view) {
 
     }
 }

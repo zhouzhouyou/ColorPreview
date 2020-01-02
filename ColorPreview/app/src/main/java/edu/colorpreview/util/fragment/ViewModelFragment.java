@@ -25,10 +25,10 @@ public abstract class ViewModelFragment<VM extends ViewModel> extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        init();
+        init(view);
     }
 
-    protected abstract void init();
+    protected abstract void init(View view);
 
     protected void initVM(Class<? extends VM> vmClass) {
         mVM = ViewModelProviders.of(this).get(vmClass);

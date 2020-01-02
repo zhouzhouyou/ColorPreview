@@ -46,7 +46,7 @@ public interface ApiInterface {
     Call<List<Design>> getAllDesigns();
 
     @POST("design/getAllUserBookmark")
-    Call<List<Bookmark>> getAllUserBookmark(
+    Call<List<Design>> getAllUserBookmark(
             @Query("uid") Integer uid
     );
 

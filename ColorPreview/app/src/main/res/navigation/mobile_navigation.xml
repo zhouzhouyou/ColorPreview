@@ -3,24 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/home">
     <fragment
-        android:id="@+id/bookmarkFragment"
+        android:id="@+id/bookmark"
         android:name="edu.colorpreview.view.bookmark.BookmarkFragment"
         android:label="BookmarkFragment"
         tools:layout="@layout/design_recycler_view"/>
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/account"
         android:name="edu.colorpreview.view.profile.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/profile_fragment"/>
     <activity
-        android:id="@+id/designerActivity"
+        android:id="@+id/designer"
         android:name="edu.colorpreview.view.designer.DesignerActivity"
         android:label="designer_activity"
         tools:layout="@layout/designer_activity" />
     <fragment
-        android:id="@+id/homeFragment"
+        android:id="@+id/home"
         android:name="edu.colorpreview.view.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/design_recycler_view"/>
