@@ -1,19 +1,18 @@
 package edu.colorpreview.view;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import edu.colorpreview.R;
+import edu.colorpreview.view.user.LoginActivity;
+import edu.colorpreview.view.user.UserStatus;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navView;
@@ -35,6 +34,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
         setNavView();
+        if (UserStatus.sUser == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void setNavView() {

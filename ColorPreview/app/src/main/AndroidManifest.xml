@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.designer.DesignerActivity" />
+        <activity android:name=".view.user.LoginActivity" />
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package edu.colorpreview.network;
 
 import edu.colorpreview.model.Bookmark;
+import edu.colorpreview.model.User;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
 import retrofit2.http.POST;
@@ -11,6 +12,32 @@ import edu.colorpreview.model.Design;
 import java.util.List;
 
 public interface ApiInterface {
+    /**
+     * 登录
+     *
+     * @param name     用户名
+     * @param password 密码
+     * @return 用户的ID
+     */
+    @POST("user/signIn")
+    Call<User> signIn(
+            @Query("name") String name,
+            @Query("password") String password
+    );
+
+    /**
+     * 注册用户
+     *
+     * @param name     用户名
+     * @param password 用户密码
+     * @return 注册的ID
+     */
+    @POST("user/signUp")
+    Call<Integer> signUp(
+            @Query("name") String name,
+            @Query("password") String password
+    );
+
     @PUT("design/createBookmark")
     Call<Integer> createBookMark(
             @Query("did") Integer did,

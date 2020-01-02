@@ -24,4 +24,19 @@
         android:name="edu.colorpreview.view.home.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/design_recycler_view"/>
+<!--    <fragment-->
+<!--        android:id="@+id/signIn"-->
+<!--        android:name="edu.colorpreview.view.user.SignInFragment"-->
+<!--        android:label="@string/signIn"-->
+<!--        tools:layout="@layout/sign_in"/>-->
+<!--    <fragment-->
+<!--        android:id="@+id/signUp"-->
+<!--        android:name="edu.colorpreview.view.user.SignUpFragment"-->
+<!--        android:label="@string/signUp"-->
+<!--        tools:layout="@layout/sign_up"/>-->
+<!--    <activity-->
+<!--        android:id="@+id/login"-->
+<!--        android:name="edu.colorpreview.view.user.LoginActivity"-->
+<!--        android:label="login"-->
+<!--        tools:layout="@layout/activity_login"/>-->
 </navigation>
