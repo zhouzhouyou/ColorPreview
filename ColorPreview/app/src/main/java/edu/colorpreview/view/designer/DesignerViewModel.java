@@ -1,22 +1,20 @@
 package edu.colorpreview.view.designer;
 
 import android.app.Application;
-import android.graphics.Color;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.MutableLiveData;
+import edu.colorpreview.model.Design;
 import edu.colorpreview.util.BaseViewModel;
 
 public class DesignerViewModel extends BaseViewModel {
-    private Color primaryColor;
-    private Color primaryLighter;
-    private Color primaryDarker;
-    private Color secondaryColor;
-    private Color secondaryLighter;
-    private Color secondaryDarker;
-    private Color textOnP;
-    private Color textOnS;
+    public MutableLiveData<Design> mDesign = new MutableLiveData<>();
 
     public DesignerViewModel(@NonNull Application application) {
         super(application);
+    }
+
+    public void setDesign(Design design) {
+        mDesign.postValue(design);
     }
 }

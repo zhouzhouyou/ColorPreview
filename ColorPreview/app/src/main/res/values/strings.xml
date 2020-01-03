@@ -15,4 +15,19 @@
     <string name="password">password</string>
     <string name="signIn">signIn</string>
     <string name="signUp">signUp</string>
+    <string name="delete">delete</string>
+    <string name="title_activity_designer2">Designer2Activity</string>
+    <string name="upload">upload</string>
+    <string name="primary">primary</string>
+    <string name="secondary">secondary</string>
+    <string name="text_on_primary">textOnPrimary</string>
+    <string name="text_on_secondary">textOnSecondary</string>
+    <string name="first">first</string>
+    <string name="second">second</string>
+    <string name="third">third</string>
+    <string-array name="pager">
+        <item>@string/first</item>
+        <item>@string/second</item>
+        <item>@string/third</item>
+    </string-array>
 </resources>

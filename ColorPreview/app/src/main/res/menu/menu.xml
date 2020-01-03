@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:icon="@drawable/ic_share_pink_600_24dp"
+        android:id="@+id/action_share"
+        android:title="@string/share"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom" />
+    <item
+        android:icon="@drawable/ic_cloud_upload_white_24dp"
+        android:id="@+id/action_upload"
+        android:title="@string/upload"
+        app:showAsAction="always"/>
+</menu>

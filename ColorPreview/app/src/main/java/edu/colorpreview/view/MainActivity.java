@@ -2,8 +2,10 @@ package edu.colorpreview.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -11,12 +13,15 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import edu.colorpreview.R;
+import edu.colorpreview.view.designer.DesignerActivity;
 import edu.colorpreview.view.user.LoginActivity;
 import edu.colorpreview.view.user.UserStatus;
 
 public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navView;
     private NavController navController;
+    private FloatingActionButton fab;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
+
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, DesignerActivity.class);
+            startActivity(intent);
+        });
     }
 
     private void setNavView() {

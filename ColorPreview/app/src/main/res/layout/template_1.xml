@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="vm"
-            type="edu.colorpreview.view.designer.DesignerViewModel" />
+            name="design"
+            type="edu.colorpreview.model.Design" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +20,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@color/primaryDarkColor" />
+            android:background="@{design.pd}"
+            tools:src="@color/primaryDarkColor"/>
 
         <ImageView
             android:id="@+id/title_bar"
@@ -29,7 +30,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/status_bar"
-            app:srcCompat="@color/primaryColor" />
+            android:background="@{design.p}"
+            tools:src="@color/primaryColor"/>
 
         <ImageView
             android:id="@+id/graph"
@@ -38,13 +40,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_bar"
-            app:srcCompat="@color/defaultBackground" />
+            android:background="@color/defaultBackground" />
 
         <edu.colorpreview.view.CircleView
             android:id="@+id/fab"
             android:layout_width="@dimen/fab_size"
             android:layout_height="@dimen/fab_size"
-            android:src="#DDDDDD"
+            android:src="@{design.s}"
             android:layout_marginEnd="@dimen/fab_margin"
             app:layout_constraintBottom_toBottomOf="@+id/graph"
             app:layout_constraintEnd_toEndOf="@+id/graph"

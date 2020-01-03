@@ -1,10 +1,16 @@
 package edu.colorpreview.model;
 
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import androidx.databinding.BindingAdapter;
+import androidx.databinding.InverseBindingAdapter;
 import lombok.Data;
+
+import static edu.colorpreview.view.designer.DesignerActivity.*;
 
 @Data
 public class Design {
@@ -70,7 +76,55 @@ public class Design {
 
     @BindingAdapter("android:background")
     public static void setBackground(View view, String color) {
+        if (color == null) color = "#00000000";
         view.setBackgroundColor(Color.parseColor(color));
+    }
+
+    @BindingAdapter("android:textColor")
+    public static void setTextColor(View view, String color) {
+        if (color == null) color = "#000000";
+        ((Button) view).setTextColor(Color.parseColor(color));
+    }
+
+    @InverseBindingAdapter(attribute = "android:background")
+    public static String fromBackground(View view) {
+        int color = ((ColorDrawable) view.getBackground()).getColor();
+        return "#" +
+                Integer.toHexString(Color.red(color)) +
+                Integer.toHexString(Color.green(color)) +
+                Integer.toHexString(Color.blue(color));
+    }
+
+    public Bundle getBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putInt(ID, id);
+        bundle.putString(NAME, name);
+        bundle.putString(P, p);
+        bundle.putString(PL, pl);
+        bundle.putString(PD, pd);
+        bundle.putString(S, s);
+        bundle.putString(SL, sl);
+        bundle.putString(SD, sd);
+        bundle.putString(TP, tp);
+        bundle.putString(TS, ts);
+        bundle.putInt(UID, uid);
+        return bundle;
+    }
+
+    public static Design fromBundle(Bundle bundle) {
+        return new Design(
+                bundle.getInt(ID),
+                bundle.getString(NAME),
+                bundle.getString(P),
+                bundle.getString(PL),
+                bundle.getString(PD),
+                bundle.getString(S),
+                bundle.getString(SL),
+                bundle.getString(SD),
+                bundle.getString(TP),
+                bundle.getString(TS),
+                bundle.getInt(UID)
+        );
     }
 }
 
