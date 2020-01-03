@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="design"
+            type="edu.colorpreview.model.Design" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/defaultBackground"
+            app:layout_constraintStart_toEndOf="@+id/contain_panel"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Switch
+            android:id="@+id/swh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@{design.sd}"
+            android:textOff="@string/off"
+            android:textOn="@string/on"
+            android:tint="@{design.sl}"
+            app:layout_constraintEnd_toEndOf="@+id/contain_panel"
+            app:layout_constraintTop_toBottomOf="@+id/contain_panel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/panel1"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@{design.pd}"
+            android:text=""
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/primaryDarkColor" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/panel2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/title_bar"
+            android:background="@{design.p}"
+            android:text=""
+            app:layout_constraintTop_toBottomOf="@+id/panel1"
+            tools:background="@color/primaryColor" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contain_panel"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:background="@{design.s}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/panel1"
+            tools:background="@color/secondaryColor">
+
+            <ImageView
+                android:id="@+id/yx"
+                android:layout_width="164dp"
+                android:layout_height="133dp"
+                android:alpha="1"
+                android:src="@mipmap/cycle"
+                android:tint="@{design.sl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.434"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:tint="@color/secondaryLightColor">
+
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/sjx"
+                android:layout_width="153dp"
+                android:layout_height="147dp"
+
+                android:alpha="0.7"
+                android:src="@mipmap/sanjiaoxing"
+                android:tint="@{design.sl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.79"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.163"
+                tools:tint="@color/secondaryLightColor">
+
+            </ImageView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

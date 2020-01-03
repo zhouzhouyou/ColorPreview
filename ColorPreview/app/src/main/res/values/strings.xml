@@ -16,15 +16,30 @@
     <string name="signIn">signIn</string>
     <string name="signUp">signUp</string>
     <string name="delete">delete</string>
-    <string name="title_activity_designer2">Designer2Activity</string>
+    <string name="title_activity_designer">DesignerActivity</string>
     <string name="upload">upload</string>
     <string name="primary">primary</string>
     <string name="secondary">secondary</string>
-    <string name="text_on_primary">textOnPrimary</string>
-    <string name="text_on_secondary">textOnSecondary</string>
+    <string name="text_on_primary">text On P</string>
+    <string name="text_on_secondary">text On S</string>
     <string name="first">first</string>
     <string name="second">second</string>
     <string name="third">third</string>
+    <string name="title">Title</string>
+    <string name="off">off</string>
+    <string name="on">on</string>
+    <string name="getPrimaryColor">get primary color</string>
+    <string name="confirm">confirm</string>
+    <string name="cancel">cancel</string>
+    <string name="getSecondaryColor">get secondary color</string>
+    <string name="getTextOnPrimary">get text color on primary</string>
+    <string name="getTextOnSecondary">get text color on secondary</string>
+    <string name="color">color</string>
+    <string name="copied">copied</string>
+    <string name="create_design">create  design</string>
+    <string name="success">success</string>
+    <string name="failed">failed</string>
+    <string name="success_delete">success delete</string>
     <string-array name="pager">
         <item>@string/first</item>
         <item>@string/second</item>

@@ -11,4 +11,5 @@
     <color name="absentColor">#FFFFFF</color>
     <color name="defaultBackground">#E1E2E1</color>
     <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
 </resources>

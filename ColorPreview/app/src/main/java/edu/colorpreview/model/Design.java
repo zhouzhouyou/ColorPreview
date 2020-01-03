@@ -1,11 +1,20 @@
 package edu.colorpreview.model;
 
+import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.Switch;
+import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.databinding.BindingAdapter;
 import androidx.databinding.InverseBindingAdapter;
 import lombok.Data;
@@ -74,6 +83,10 @@ public class Design {
         this.uid = uid;
     }
 
+    public Design() {
+
+    }
+
     @BindingAdapter("android:background")
     public static void setBackground(View view, String color) {
         if (color == null) color = "#00000000";
@@ -83,7 +96,18 @@ public class Design {
     @BindingAdapter("android:textColor")
     public static void setTextColor(View view, String color) {
         if (color == null) color = "#000000";
-        ((Button) view).setTextColor(Color.parseColor(color));
+        ((TextView) view).setTextColor(Color.parseColor(color));
+    }
+
+    @BindingAdapter("android:thumbTint")
+    public static void setThumbTint(View view, String color) {
+        SeekBar seekBar = (SeekBar) view;
+        if (color == null) color = "#55000000";
+        LayerDrawable layerDrawable = (LayerDrawable) seekBar.getProgressDrawable();
+        Drawable drawable = layerDrawable.getDrawable(2);
+        drawable.setColorFilter(Color.parseColor(color), PorterDuff.Mode.SRC);
+        seekBar.getThumb().setColorFilter(Color.parseColor(color), PorterDuff.Mode.SRC);
+        seekBar.invalidate();
     }
 
     @InverseBindingAdapter(attribute = "android:background")
@@ -93,6 +117,29 @@ public class Design {
                 Integer.toHexString(Color.red(color)) +
                 Integer.toHexString(Color.green(color)) +
                 Integer.toHexString(Color.blue(color));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @BindingAdapter("android:backgroundTint")
+    public static void setBackgroundTint(View view, String color) {
+        if (color == null) color = "#00000000";
+        if (view instanceof Switch) {
+            ((Switch)view).setTrackTintList(ColorStateList.valueOf(Color.parseColor(color)));
+        } else {
+            view.setBackgroundTintList(ColorStateList.valueOf(Color.parseColor(color)));
+        }
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @BindingAdapter("android:tint")
+    public static void setTint(View view, String color) {
+        if (color == null) color = "#00000000";
+        if (view instanceof Switch) {
+            ((Switch)view).setThumbTintList(ColorStateList.valueOf(Color.parseColor(color)));
+        } else {
+            view.setForegroundTintList(ColorStateList.valueOf(Color.parseColor(color)));
+        }
     }
 
     public Bundle getBundle() {

@@ -15,8 +15,9 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
             android:name=".view.designer.DesignerActivity"
-            android:label="@string/title_activity_designer2"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:label="@string/title_activity_designer"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".view.MainActivity"
             android:label="@string/title_activity_main">
@@ -27,6 +28,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.user.LoginActivity" />
+        <provider
+            android:authorities="edu.colorpreview.fileprovider"
+            android:name="androidx.core.content.FileProvider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepaths"/>
+
+        </provider>
     </application>
 
 </manifest>

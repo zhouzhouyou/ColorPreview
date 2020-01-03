@@ -1,5 +1,15 @@
 package edu.colorpreview.view.designer;
 
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+import com.flask.colorpicker.ColorPickerView;
+import com.flask.colorpicker.OnColorSelectedListener;
+import com.flask.colorpicker.builder.ColorPickerClickListener;
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder;
 import com.google.android.material.tabs.TabLayout;
 
 import androidx.annotation.NonNull;
@@ -11,7 +21,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
 import edu.colorpreview.R;
 import edu.colorpreview.databinding.DesignFragmentBinding;
+import edu.colorpreview.model.Design;
+import edu.colorpreview.util.ColorUtil;
 import edu.colorpreview.util.fragment.DataBindingFragment;
+import edu.colorpreview.view.MyHandler;
 
 public class DesignFragment extends DataBindingFragment<DesignFragmentBinding> {
     private TabLayout mTabLayout;
@@ -39,25 +52,9 @@ public class DesignFragment extends DataBindingFragment<DesignFragmentBinding> {
         mTabLayout.setupWithViewPager(mViewPager);
         designFragmentBinding.setDesign(mDesignerViewModel.mDesign.getValue());
         mDesignerViewModel.mDesign.observe(getViewLifecycleOwner(), designFragmentBinding::setDesign);
-        designFragmentBinding.setHandler(new Handler());
-    }
-
-    public class Handler {
-        public void changeP() {
-
-        }
-
-        public void changeS() {
-
-        }
-
-        public void changeTP() {
-
-        }
-
-        public void changeTS() {
-
-        }
+        designFragmentBinding.setColor(mDesignerViewModel.mColorHandler);
+        designFragmentBinding.setHandler(new MyHandler());
+        mDesignerViewModel.message.observe(getViewLifecycleOwner(), s -> Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show());
     }
 
     public class PagerAdapter extends FragmentPagerAdapter {

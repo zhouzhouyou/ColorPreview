@@ -24,7 +24,7 @@ public class XmlBuilder {
     }
 
     public static File generateXML(Context context, Design design) {
-        File file = new File(context.getCacheDir().getAbsolutePath() + File.separator + "colors.xml");
+        File file = new File(context.getFilesDir() + File.separator + "colors.xml");
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder db = factory.newDocumentBuilder();

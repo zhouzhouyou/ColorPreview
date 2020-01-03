@@ -17,41 +17,71 @@
             android:id="@+id/status_bar"
             android:layout_width="0dp"
             android:layout_height="@dimen/status_bar"
+            android:background="@{design.pd}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@{design.pd}"
-            tools:src="@color/primaryDarkColor"/>
+            tools:src="@color/primaryDarkColor" />
 
         <ImageView
             android:id="@+id/title_bar"
             android:layout_width="0dp"
             android:layout_height="@dimen/title_bar"
+            android:background="@{design.p}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/status_bar"
-            android:background="@{design.p}"
-            tools:src="@color/primaryColor"/>
+            tools:src="@color/primaryColor" />
 
         <ImageView
             android:id="@+id/graph"
             android:layout_width="0dp"
             android:layout_height="@dimen/graph"
+            android:background="@color/defaultBackground"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_bar"
-            android:background="@color/defaultBackground" />
+            app:layout_constraintTop_toBottomOf="@+id/title_bar" />
 
-        <edu.colorpreview.view.CircleView
-            android:id="@+id/fab"
-            android:layout_width="@dimen/fab_size"
-            android:layout_height="@dimen/fab_size"
-            android:src="@{design.s}"
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:thumbTint="@{design.s}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/floatingActionButton" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/fab_margin"
-            app:layout_constraintBottom_toBottomOf="@+id/graph"
-            app:layout_constraintEnd_toEndOf="@+id/graph"
-            app:layout_constraintTop_toBottomOf="@+id/graph"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:clickable="false"
+            android:backgroundTint="@{design.s}"
+            android:tint="@{design.ts}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline"
+            app:srcCompat="@drawable/ic_add_white_24dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="309dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/title"
+            android:textColor="@{design.tp}"
+            android:textSize="@dimen/title_size"
+            app:layout_constraintBottom_toBottomOf="@+id/title_bar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/status_bar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

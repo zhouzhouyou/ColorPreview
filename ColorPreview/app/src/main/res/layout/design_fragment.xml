@@ -8,8 +8,11 @@
             name="design"
             type="edu.colorpreview.model.Design" />
         <variable
+            name="color"
+            type="edu.colorpreview.view.designer.DesignerViewModel.ColorHandler" />
+        <variable
             name="handler"
-            type="edu.colorpreview.view.designer.DesignFragment.Handler" />
+            type="edu.colorpreview.view.MyHandler" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,6 +22,15 @@
         tools:context=".view.designer.DesignerActivity"
         tools:showIn="@layout/activity_designer">
 
+
+        <View
+            android:id="@+id/tool_bar"
+            android:background="@color/primaryColor"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/title_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -39,8 +51,12 @@
                 android:contentDescription="@{design.p}"
                 android:text="@string/primary"
                 android:textColor="@{design.tp}"
+                android:textSize="@dimen/button_text"
                 tools:background="@color/primaryColor"
-                tools:textColor="@color/primaryTextColor" />
+                tools:textColor="@color/primaryTextColor"
+                android:onClick="@{view -> color.changeP(view)}"
+                android:onLongClick="@{view -> color.onLongClick(view, design.p)}"
+                />
 
             <Button
                 android:id="@+id/s"
@@ -52,8 +68,12 @@
                 android:contentDescription="@{design.s}"
                 android:text="@string/secondary"
                 android:textColor="@{design.ts}"
+                android:textSize="@dimen/button_text"
                 tools:background="@color/secondaryColor"
-                tools:textColor="@color/secondaryTextColor" />
+                tools:textColor="@color/secondaryTextColor"
+                android:onClick="@{view -> color.changeS(view)}"
+                android:onLongClick="@{view -> color.onLongClick(view, design.s)}"
+                />
 
             <Button
                 android:id="@+id/tp"
@@ -65,8 +85,12 @@
                 android:contentDescription="@{design.tp}"
                 android:text="@string/text_on_primary"
                 android:textColor="@{design.p}"
+                android:textSize="@dimen/button_text"
                 tools:background="@color/primaryTextColor"
-                tools:textColor="@color/primaryColor" />
+                tools:textColor="@color/primaryColor"
+                android:onClick="@{view -> color.changeTP(view)}"
+                android:onLongClick="@{view -> color.onLongClick(view, design.tp)}"
+                />
 
             <Button
                 android:id="@+id/ts"
@@ -78,41 +102,70 @@
                 android:contentDescription="@{design.ts}"
                 android:text="@string/text_on_secondary"
                 android:textColor="@{design.s}"
+                android:textSize="@dimen/button_text"
                 tools:background="@color/secondaryTextColor"
-                tools:textColor="@color/secondaryColor" />
+                tools:textColor="@color/secondaryColor"
+                android:onClick="@{view -> color.changeTS(view)}"
+                android:onLongClick="@{view -> color.onLongClick(view, design.ts)}"
+                />
         </LinearLayout>
-
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/first" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/second" />
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/third" />
-        </com.google.android.material.tabs.TabLayout>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="633dp"
+            android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+            app:layout_constraintTop_toBottomOf="@+id/tool_bar">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/first" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/second" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/third" />
+            </com.google.android.material.tabs.TabLayout>
+        </androidx.viewpager.widget.ViewPager>
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:background="@color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/viewPager"
+            app:layout_constraintEnd_toEndOf="@+id/tool_bar"
+            app:layout_constraintTop_toTopOf="@+id/tool_bar"
+            app:srcCompat="@drawable/ic_cloud_upload_white_24dp"
+            android:onClick="@{view -> color.upload(view)}"/>
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:background="@color/transparent"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton"
+            app:layout_constraintTop_toTopOf="@+id/imageButton"
+            app:srcCompat="@drawable/ic_share_pink_600_24dp"
+            android:onClick="@{view -> handler.shareClicked(view, design)}"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
