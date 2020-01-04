@@ -15,7 +15,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BookmarkViewModel extends BaseViewModel {
-    private final MutableLiveData<List<Design>> design = new MutableLiveData<>();
+    public final MutableLiveData<List<Design>> design = new MutableLiveData<>();
 
     public BookmarkViewModel(@NonNull Application application) {
         super(application);

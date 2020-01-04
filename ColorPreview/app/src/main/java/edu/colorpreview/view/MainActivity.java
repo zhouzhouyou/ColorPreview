@@ -26,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (UserStatus.sUser == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
         setContentView(R.layout.activity_main);
         navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -39,10 +43,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navView, navController);
 
         setNavView();
-        if (UserStatus.sUser == null) {
-            Intent intent = new Intent(this, LoginActivity.class);
-            startActivity(intent);
-        }
+
 
         fab = findViewById(R.id.fab);
         fab.setOnClickListener(v -> {

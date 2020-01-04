@@ -21,7 +21,7 @@ import edu.colorpreview.view.user.UserStatus;
 
 public class ProfileFragment extends DataBindingFragment<ProfileFragmentBinding> {
     private ProfileViewModel viewModel;
-
+    private MyHandler mMyHandler;
 
 
     @Override
@@ -32,6 +32,7 @@ public class ProfileFragment extends DataBindingFragment<ProfileFragmentBinding>
     @Override
     protected void init(ProfileFragmentBinding profileFragmentBinding) {
         viewModel = ViewModelProviders.of(this).get(ProfileViewModel.class);
+        mMyHandler = ViewModelProviders.of(requireActivity()).get(MyHandler.class);
         DesignAdapter adapter = new DesignAdapter(
                 Objects.requireNonNull(getActivity()).getLayoutInflater(),
                 null,
@@ -50,6 +51,7 @@ public class ProfileFragment extends DataBindingFragment<ProfileFragmentBinding>
         viewModel.mDesigns.observe(getViewLifecycleOwner(), designs ->  {
             adapter.setDataList(designs);
             swipeRefreshLayout.setRefreshing(false);
+            mMyHandler.refreshBookmarks();
         });
     }
 
@@ -60,7 +62,16 @@ public class ProfileFragment extends DataBindingFragment<ProfileFragmentBinding>
 
         @Override
         protected void initViewHolder(MyDesignItemBinding designItemBinding) {
-            designItemBinding.setHandler(new MyHandler());
+            designItemBinding.setHandler(mMyHandler);
+            mMyHandler.bookmarks.observe(getViewLifecycleOwner(), integers -> {
+                Design design = designItemBinding.getDesign();
+                if (design != null) {
+                    designItemBinding.bookmark.setImageResource(
+                            mMyHandler.isBookMarked(design.id) ?
+                                    R.drawable.ic_bookmark_red_500_24dp :
+                                    R.drawable.ic_bookmark_grey_600_24dp);
+                }
+            });
             designItemBinding.setMy(viewModel.mMyDesignHandler);
         }
     }

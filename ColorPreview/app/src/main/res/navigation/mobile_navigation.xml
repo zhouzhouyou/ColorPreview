@@ -7,12 +7,12 @@
     <fragment
         android:id="@+id/bookmark"
         android:name="edu.colorpreview.view.bookmark.BookmarkFragment"
-        android:label="BookmarkFragment"
+        android:label="@string/bookmark"
         tools:layout="@layout/design_recycler_view"/>
     <fragment
         android:id="@+id/account"
         android:name="edu.colorpreview.view.profile.ProfileFragment"
-        android:label="ProfileFragment"
+        android:label="@string/profile"
         tools:layout="@layout/profile_fragment"/>
     <activity
         android:id="@+id/designer"
@@ -22,6 +22,6 @@
     <fragment
         android:id="@+id/home"
         android:name="edu.colorpreview.view.home.HomeFragment"
-        android:label="HomeFragment"
+        android:label="@string/home"
         tools:layout="@layout/design_recycler_view"/>
 </navigation>

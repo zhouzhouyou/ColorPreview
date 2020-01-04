@@ -53,7 +53,7 @@ public class DesignFragment extends DataBindingFragment<DesignFragmentBinding> {
         designFragmentBinding.setDesign(mDesignerViewModel.mDesign.getValue());
         mDesignerViewModel.mDesign.observe(getViewLifecycleOwner(), designFragmentBinding::setDesign);
         designFragmentBinding.setColor(mDesignerViewModel.mColorHandler);
-        designFragmentBinding.setHandler(new MyHandler());
+        designFragmentBinding.setHandler(ViewModelProviders.of(requireActivity()).get(MyHandler.class));
         mDesignerViewModel.message.observe(getViewLifecycleOwner(), s -> Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show());
     }
 

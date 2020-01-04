@@ -40,6 +40,9 @@
     <string name="success">success</string>
     <string name="failed">failed</string>
     <string name="success_delete">success delete</string>
+    <string name="NULL">null</string>
+    <string name="author">author</string>
+    <string name="profile">profile</string>
     <string-array name="pager">
         <item>@string/first</item>
         <item>@string/second</item>

@@ -143,11 +143,21 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/transparent"
-                app:srcCompat="@drawable/ic_bookmark_grey_600_24dp"
+                tools:src="@drawable/ic_bookmark_grey_600_24dp"
                 app:layout_constraintEnd_toStartOf="@+id/share"
                 app:layout_constraintTop_toTopOf="@+id/guideline2"
                 android:onClick="@{view -> handler.bookmarkClicked(view, design)}"
                 android:contentDescription="@string/bookmark" />
+
+            <TextView
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@{`@` + design.uid}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
