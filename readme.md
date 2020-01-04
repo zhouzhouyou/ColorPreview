@@ -4,7 +4,7 @@
 
 # UI SKETCH
 
- ![colorPreview.png](https://github.com/zhouzhouyou/ColorPreview/blob/master/assets/colorPreview.png)
+ ![colorPreview.png](./assets/colorPreview.png)
 
 这是用户的主要操作界面（当然不是实际情况，UI界面还有待商榷）
 
