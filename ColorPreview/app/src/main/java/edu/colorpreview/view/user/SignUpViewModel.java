@@ -18,6 +18,7 @@ public class SignUpViewModel extends BaseViewModel {
     public String username = "";
     public String password = "";
 
+    public MutableLiveData<Boolean> signUp = new MutableLiveData<>();
     private MutableLiveData<String> wrong = new MutableLiveData<>();
 
     public MutableLiveData<String> getWrong() {
@@ -42,8 +43,7 @@ public class SignUpViewModel extends BaseViewModel {
             public void onResponse(Call<Integer> call, Response<Integer> response) {
                 if (response.isSuccessful()) {
                     UserStatus.sUser = new User(response.body(), username, password, 0.0);
-                    NavController navController = Navigation.findNavController(view);
-                    navController.navigate(R.id.account);
+                    signUp.postValue(true);
                 } else {
                     wrong.postValue("注册失败，可能有相同的用户名");
                 }
